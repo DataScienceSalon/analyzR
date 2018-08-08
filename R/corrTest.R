@@ -17,8 +17,6 @@
 #' @export
 corrTest <- function(x, target, method = "pearson") {
 
-  library(stats)
-
   vars <- colnames(df)[sapply(df, is.numeric)]
   vars <- vars[vars != target]
 

@@ -21,10 +21,6 @@
 #' @export
 multiSLM <- function(x, vars, target) {
 
-  library(broom)
-  library(data.table)
-  library(dplyr)
-
   models <- lapply(vars, function(v) {
     m <- list()
     fmla <- as.formula(paste(target, v, sep = "~"))
