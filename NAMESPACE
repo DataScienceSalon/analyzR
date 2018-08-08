@@ -2,4 +2,5 @@
 
 export(assocMatrix)
 export(corrTest)
+export(correlation)
 export(multiSLM)

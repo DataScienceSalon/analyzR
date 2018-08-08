@@ -19,6 +19,9 @@ Dataframe of correlations between predictors and the target variable
 \description{
 \code{corrTest} Computes correlations between numeric predictors and a target variable
 }
+\seealso{
+Other Correlation Functions: \code{\link{correlation}}
+}
 \author{
 John James, \email{jjames@datasciencesalon.org}
 }
