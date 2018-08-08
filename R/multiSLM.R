@@ -3,7 +3,9 @@
 #------------------------------------------------------------------------------#
 #' multiSLM
 #'
-#' \code{multiSLM} Performs simple linear regression on multiple variables
+#' \code{multiSLM} Performs simple linear regression on multiple variables.
+#'
+#' Performs simple linear regression on multiple variables
 #' vis-a-vis the target variable and returns a list containing the models,
 #' the regression results and the statistics. The regression statisics for
 #' each variable are summarized in descending order of r squared.

@@ -20,10 +20,16 @@ is comprised of a list containing the model object, the regression results,
 and the regression statistics.
 }
 \description{
-\code{multiSLM} Performs simple linear regression on multiple variables
+\code{multiSLM} Performs simple linear regression on multiple variables.
+}
+\details{
+Performs simple linear regression on multiple variables
 vis-a-vis the target variable and returns a list containing the models,
 the regression results and the statistics. The regression statisics for
 each variable are summarized in descending order of r squared.
+}
+\seealso{
+Other Analysis Functions: \code{\link{assocMatrix}}
 }
 \author{
 John James, \email{jjames@datasciencesalon.org}
