@@ -4,7 +4,7 @@
 \alias{assocMatrix}
 \title{assocMatrix}
 \usage{
-assocMatrix(x, vars, target)
+assocMatrix(x, vars)
 }
 \arguments{
 \item{x}{Dataframe to be summarized}
