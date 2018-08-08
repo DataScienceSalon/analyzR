@@ -24,7 +24,7 @@ assocMatrix <- function(x, vars) {
   calculate_cramer <- function(m, df) {
     for (r in seq(nrow(m))){
       for (c in seq(ncol(m))){
-        m[[r, c]] <- assocstats(table(df[[r]], df[[c]]))$cramer
+        m[[r, c]] <- vcd::assocstats(table(df[[r]], df[[c]]))$cramer
       }
     }
     return(m)
