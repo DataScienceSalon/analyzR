@@ -26,18 +26,18 @@
 correlation <- function(x, target = NULL, threshold = 0) {
 
   # Extract terms to be analyzed
-  vars <- colnames(df)[sapply(df, is.numeric)]
+  vars <- colnames(x)[sapply(x, is.numeric)]
   if (!is.null(target)) vars <- vars[vars != target]
 
   # Create dataframe containing variables of interest
-  quantData <- df[vars]
+  quantData <- x[vars]
 
   if (length(vars) > 10) {
 
     # Create new labels for plotting and create cross-reference to original variables
     colnames(quantData) <- paste0("f", 1:ncol(quantData))
     xref <- data.frame(Label = colnames(quantData),
-                       Variable = colnames(df[vars]), stringsAsFactors = FALSE)
+                       Variable = colnames(x[vars]), stringsAsFactors = FALSE)
 
     # Compute correlation matrix
     correlationMatrix <- cor(quantData)

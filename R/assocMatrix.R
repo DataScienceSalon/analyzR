@@ -12,7 +12,7 @@
 #' @author John James, \email{jjames@@datasciencesalon.org}
 #' @family Analysis Functions
 #' @export
-assocMatrix <- function(x, vars, target) {
+assocMatrix <- function(x, vars) {
 
   # Initialize empty matrix
   assoc <- matrix(ncol = length(vars),
