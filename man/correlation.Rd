@@ -4,7 +4,7 @@
 \alias{correlation}
 \title{correlation}
 \usage{
-correlation(x, target = NULL, threshold = 0)
+correlation(x, target = NULL, threshold = 0, bigMatrix = 10)
 }
 \arguments{
 \item{x}{dataframe containing data to be analyzed}
@@ -16,6 +16,9 @@ when analyzing correlations only among predictors.}
 
 \item{threshold}{numeric indicating the minimum correlation threshold
 to be reported in the correlation table.}
+
+\item{bigMatrix}{Numeric indicating the number of terms above which
+the terms are replaced with short labels for plotting.}
 }
 \value{
 List containing the correlation matrix and pairwise correlation

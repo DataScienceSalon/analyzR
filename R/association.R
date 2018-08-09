@@ -16,6 +16,8 @@
 #' when analyzing associations only among predictors.
 #' @param threshold numeric indicating the minimum association threshold
 #' to be reported in the association table.
+#' @param bigMatrix Numeric indicating the number of terms, above which,
+#' the terms are replaced by short labels for association plotting.
 #'
 #' @return List containing the association matrix and pairwise association
 #' table. If there are greater than 10 variables, the variable names
@@ -23,7 +25,7 @@
 #' @author John James, \email{jjames@@datasciencesalon.org}
 #' @family association Functions
 #' @export
-association <- function(x, target = NULL, threshold = 0) {
+association <- function(x, target = NULL, threshold = 0, bigMatrix = 10) {
 
   # Extract terms to be analyzed
   vars <- colnames(x)[sapply(x, is.factor)]
@@ -32,7 +34,7 @@ association <- function(x, target = NULL, threshold = 0) {
   # Create dataframe containing variables of interest
   qualData <- x[vars]
 
-  if (length(vars) > 10) {
+  if (length(vars) > bigMatrix) {
 
     # Create new labels for plotting and create cross-reference to original variables
     colnames(qualData) <- paste0("f", 1:ncol(qualData))
@@ -81,7 +83,7 @@ association <- function(x, target = NULL, threshold = 0) {
   result <- list()
   result$matrix <- associationMatrix
   result$table <- assocTbl
-  if (length(vars) > 10) result$xref <- xref
+  if (length(vars) > bigMatrix) result$xref <- xref
 
   return(result)
 }

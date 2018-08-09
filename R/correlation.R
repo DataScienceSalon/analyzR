@@ -16,6 +16,8 @@
 #' when analyzing correlations only among predictors.
 #' @param threshold numeric indicating the minimum correlation threshold
 #' to be reported in the correlation table.
+#' @param bigMatrix Numeric indicating the number of terms above which
+#' the terms are replaced with short labels for plotting.
 #'
 #' @return List containing the correlation matrix and pairwise correlation
 #' table. If there are greater than 10 variables, the variable names
@@ -23,7 +25,7 @@
 #' @author John James, \email{jjames@@datasciencesalon.org}
 #' @family Correlation Functions
 #' @export
-correlation <- function(x, target = NULL, threshold = 0) {
+correlation <- function(x, target = NULL, threshold = 0, bigMatrix = 10) {
 
   # Extract terms to be analyzed
   vars <- colnames(x)[sapply(x, is.numeric)]
@@ -32,7 +34,7 @@ correlation <- function(x, target = NULL, threshold = 0) {
   # Create dataframe containing variables of interest
   quantData <- x[vars]
 
-  if (length(vars) > 10) {
+  if (length(vars) > bigMatrix) {
 
     # Create new labels for plotting and create cross-reference to original variables
     colnames(quantData) <- paste0("f", 1:ncol(quantData))
@@ -81,7 +83,7 @@ correlation <- function(x, target = NULL, threshold = 0) {
   result <- list()
   result$matrix <- correlationMatrix
   result$table <- corrTbl
-  if (length(vars) > 10) result$xref <- xref
+  if (length(vars) > bigMatrix) result$xref <- xref
 
   return(result)
 }

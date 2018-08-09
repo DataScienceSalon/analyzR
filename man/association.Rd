@@ -4,7 +4,7 @@
 \alias{association}
 \title{association}
 \usage{
-association(x, target = NULL, threshold = 0)
+association(x, target = NULL, threshold = 0, bigMatrix = 10)
 }
 \arguments{
 \item{x}{dataframe containing data to be analyzed. Categorical variables
@@ -17,6 +17,9 @@ when analyzing associations only among predictors.}
 
 \item{threshold}{numeric indicating the minimum association threshold
 to be reported in the association table.}
+
+\item{bigMatrix}{Numeric indicating the number of terms, above which,
+the terms are replaced by short labels for association plotting.}
 }
 \value{
 List containing the association matrix and pairwise association
