@@ -16,9 +16,9 @@ assocMatrix <- function(x, vars) {
 
   # Initialize empty matrix
   assoc <- matrix(ncol = length(vars),
-                 nrow = length(vars),
-                 dimnames = list(vars,
-                                 vars))
+                  nrow = length(vars),
+                  dimnames = list(vars,
+                                  vars))
 
   # Function that accepts matrix for coefficients and data and returns a correlation matrix
   calculate_cramer <- function(m, df) {
