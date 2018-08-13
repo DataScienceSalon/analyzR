@@ -54,7 +54,7 @@ association <- function(x, target = NULL, threshold = 0, bigMatrix = 10) {
     names(assocTbl)[names(assocTbl) == "Var2"] <- "Label.2"
     names(assocTbl)[names(assocTbl) == "Variable.x"] <- "Variable.1"
     names(assocTbl)[names(assocTbl) == "Variable.y"] <- "Variable.2"
-    assocTbl <- assocTbl %>% select(Label.1, Variable.1, Label.2, Variable.2, Freq)
+    assocTbl <- assocTbl %>% dplyr::select(Label.1, Variable.1, Label.2, Variable.2, Freq)
 
   } else {
     # Compute association matrix
