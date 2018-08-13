@@ -24,7 +24,6 @@
 multiSLM <- function(x, vars, target) {
 
   models <- lapply(vars, function(v) {
-    print(v)
     m <- list()
     fmla <- as.formula(paste(target, v, sep = "~"))
     m$model <- lm(fmla, data = x)
