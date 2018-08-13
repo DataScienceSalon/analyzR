@@ -5,9 +5,9 @@
 #'
 #' \code{outliers} Statistics and plots to evaluate influence of outliers.
 #'
-#' Regression statistics are computed with and without each outlier. Similarly,
-#' pairwise regression plots are rendered to graphically reveal the influence
-#' of each outlier on the regression line.
+#' Regression statistics are computed and plots are rendered with and without
+#' each outlier. Regression results with all designated outliers removed
+#' are also provided.
 #'
 #' @param x An LM model for evaluation.
 #' @param target Character string containing the column name of outcome or target variable.
@@ -26,10 +26,13 @@ outliers <- function(x, target, observations) {
   fmla <- as.formula(paste(target, "~  ."))
   base <- glance(x)
 
-  analysis <- lapply(observations, function(o) {
-    df <- data[-o,]
+  obs <- lapply(observations, function(o) { o })
+  obs <- c(obs, list(observations))
+
+  analysis <- lapply(obs, function(o) {
+    df <- data[-c(o),]
     a <- list()
-    a$observation <- o
+    a$observation <- c(o)
     a$model <- lm(fmla, data = df)
     a$stats <- glance(a$model)
     a
@@ -37,7 +40,7 @@ outliers <- function(x, target, observations) {
 
   overview <- rbindlist(lapply(analysis, function(a) {
     o <- list()
-    o$observation <- a$observation
+    o$observation <- paste(c(a$observation), collapse = " ")
     o$with <- base$adj.r.squared
     o$without <- a$stats$adj.r.squared
     o$pctChange <- (o$without - o$with) / o$with * 100

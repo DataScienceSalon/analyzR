@@ -24,9 +24,9 @@ and the regression statistics for the lm objects.
 \code{outliers} Statistics and plots to evaluate influence of outliers.
 }
 \details{
-Regression statistics are computed with and without each outlier. Similarly,
-pairwise regression plots are rendered to graphically reveal the influence
-of each outlier on the regression line.
+Regression statistics are computed and plots are rendered with and without
+each outlier. Regression results with all designated outliers removed
+are also provided.
 }
 \author{
 John James, \email{jjames@datasciencesalon.org}
