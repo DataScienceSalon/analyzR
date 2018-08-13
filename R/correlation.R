@@ -54,7 +54,7 @@ correlation <- function(x, target = NULL, threshold = 0, bigMatrix = 10) {
     names(corrTbl)[names(corrTbl) == "Var2"] <- "Label.2"
     names(corrTbl)[names(corrTbl) == "Variable.x"] <- "Variable.1"
     names(corrTbl)[names(corrTbl) == "Variable.y"] <- "Variable.2"
-    corrTbl <- corrTbl %>% select(Label.1, Variable.1, Label.2, Variable.2, Freq)
+    corrTbl <- corrTbl %>% dplyr::select(Label.1, Variable.1, Label.2, Variable.2, Freq)
 
   } else {
     # Compute correlation matrix
@@ -78,7 +78,7 @@ correlation <- function(x, target = NULL, threshold = 0, bigMatrix = 10) {
 
 
   # Sort by the absolute value of the correlation, descending
-  corrTbl <- corrTbl %>% arrange(-abs(r))
+  corrTbl <- corrTbl %>% dplyr::arrange(-abs(r))
 
   result <- list()
   result$matrix <- correlationMatrix
